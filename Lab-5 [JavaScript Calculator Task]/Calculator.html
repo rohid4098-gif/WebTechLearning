@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Calculator</title>
+
+<style>
+body{
+    background: rgb(242,242,242);
+    font-family: Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.calculator{
+    width:250px;
+    background: rgb(34,34,34);
+    padding:15px;
+    border-radius:10px;
+}
+
+#display{
+    width:100%;
+    height:50px;
+    font-size:22px;
+    margin-bottom:10px;
+    text-align:right;
+    padding-right:10px;
+    border:none;
+    background: rgb(0,0,0);
+    color: rgb(255,255,255);
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+}
+
+button{
+    height:45px;
+    font-size:18px;
+    border:none;
+    background: rgb(68,68,68);
+    color: rgb(255,255,255);
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background: rgb(102,102,102);
+}
+
+.equal{
+    background: rgb(255,165,0);
+}
+
+.clear{
+    background: rgb(255,0,0);
+}
+</style>
+
+
+<script>
+
+function appendValue(value){
+    document.getElementById("display").value += value;
+}
+
+function calculate(){
+    let result = eval(document.getElementById("display").value);
+    document.getElementById("display").value = result;
+}
+
+function clearDisplay(){
+    document.getElementById("display").value = "";
+}
+
+function percentage(){
+    let value = document.getElementById("display").value;
+    document.getElementById("display").value = value / 100;
+}
+
+</script>
+
+</head>
+
+
+<body>
+
+<div class="calculator">
+
+<input type="text" id="display" disabled>
+
+<div class="buttons">
+
+<button onclick="appendValue('7')">7</button>
+<button onclick="appendValue('8')">8</button>
+<button onclick="appendValue('9')">9</button>
+<button onclick="appendValue('/')">/</button>
+
+<button onclick="appendValue('4')">4</button>
+<button onclick="appendValue('5')">5</button>
+<button onclick="appendValue('6')">6</button>
+<button onclick="appendValue('*')">x</button>
+
+<button onclick="appendValue('1')">1</button>
+<button onclick="appendValue('2')">2</button>
+<button onclick="appendValue('3')">3</button>
+<button onclick="appendValue('-')">-</button>
+
+<button onclick="appendValue('0')">0</button>
+<button onclick="appendValue('.')">.</button>
+<button onclick="percentage()">%</button>
+<button onclick="appendValue('+')">+</button>
+
+<button class="equal" onclick="calculate()">=</button>
+<button class="clear" onclick="clearDisplay()">C</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
