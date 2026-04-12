@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     if ($name == "") {
         echo "Name is empty!";
     } else {
-        echo "Hello, " ($name);
+        echo "Hello, " .($name);
     }
 } else {
     echo "Please submit the form first.";
